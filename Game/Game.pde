@@ -1,4 +1,4 @@
-public class Game extends Canvas implements Runnable{
+public class Game extends Canvas implements Runnable{ //Can run as thread now
   
   private Thread thread;
   private boolean running = false;
