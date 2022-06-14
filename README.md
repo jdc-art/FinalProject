@@ -1,12 +1,13 @@
 # FinalProject
 Brick Breaker Game
 
-Making a Brick Breaker Game: 06/13/2022
+Making a Brick Breaker Game: 06/14/2022
 
--Redoing Ball Physics (Last were buggy and caused project to crash sometimes)
--Inputs for Paddle (Not going up and down anymore just left and right for more simplicity)
--Map Generation with Array
+Redid Ball movement/physics; Should be better?
+Paddle can now move
+Brick class will function correctly when colliding with ball for the actual 'brick breaker' part of the project.
+Hopefully be doing brick class that will have a 25% chance of dropping a multiplier (falls to paddle for pickup).
 
--Adding class for Ball Multiplier (2x and 3x Multiplier)
+Grid array for MapGen(??)
 
 I love stack overflow
