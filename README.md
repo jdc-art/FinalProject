@@ -7,6 +7,6 @@ Adding Brick hitboxes
 
 TODO:
 
-Brick hitboxes
-Menu and 3 Basic Levels to play
+Brick hitboxes,
+Menu and 3 Basic Levels to play,
 Polish
