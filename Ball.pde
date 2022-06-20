@@ -1,15 +1,18 @@
   public class Ball extends Shape {
     
     private final color colour;
-    private float xSpd, ySpd, radius;
-    private boolean ballOut;
+    private final float radius;
+    private float xSpd, ySpd;
+    private boolean gameOver;
     
     Ball(float x, float y, float w, float h) {
       super(x, y, w, h);
-      colour = color(255, 255, 255);
-      radius = 9;
+      this.colour = color(255, 255, 255);
+      this.radius = 9;
       //Ball Physics Stuff
-      reset();
+      this.reset();
+      this.edgecheck();
+      this.move();
       }
     
     void draw() {
@@ -17,7 +20,7 @@
      ellipse(x, y, radius*2, radius*2);
     }
     
-    void move() {
+    private void move() { //Moves ball
       x = x + xSpd;
       y = y +ySpd;
     }
@@ -26,21 +29,26 @@
       x = width/2;
       y = height/2;
       //float angle = 46;
-      xSpd = 0;
+      xSpd = random(-10, 10);
       ySpd = 10; 
     }
     
-    void edgecheck() {
+    private void edgecheck() { //Checks if ball hits any edge; game over if ball hits bottom of screen
       if (x < 0 || x > width) {
         xSpd *= -1;
+      }
+      if (y > height) { //Bottom of screen
+        gameOver = true;
+        println(gameOver);
+        reset();
       }
       if (y < 0) {
        ySpd *= -1;
       }
-      if (y > height) {
-        ballOut = true;
-        reset();
-      } //Bottom of screen
+    }
+    
+    public boolean checkGameOver() {
+        return gameOver;
     }
     
     private float getX() {
@@ -50,14 +58,16 @@
       return y;
     }
     
-    public void getBounds(Paddle p) {
+    public void getBounds(Paddle paddle) {
       float ballX = ball.getX();
       float ballY = ball.getY();
-      
+      var distance = dist(ballX, ballY, paddle.x, paddle.y);
       //println(ballX);
-      println(ballY);
-      if (ballY > paddle.y) {
+      //println(ballY);
+      
+      if (distance < ball.radius + 20) {
         ySpd *= -1;
-      }
+        xSpd *= -1;
+      } 
     }
   }

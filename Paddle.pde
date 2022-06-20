@@ -1,12 +1,12 @@
 public class Paddle extends Shape {
   
-  color colour;
-  float xSpd;
+  private final color colour;
+  private float xSpd;
   
   Paddle(float x, float y, float w, float h) {
     super(x, y, w, h);
-    colour = color(255, 255, 255);
-    xSpd = 0;
+    this.colour = color(255, 255, 255);
+    this.xSpd = 0; //Start
   }
   
   public void draw() {
@@ -24,11 +24,4 @@ public class Paddle extends Shape {
     x += xSpd;
     x = constrain(x, w/2, width - w/2);
   }
-  
-  public float getX() {
-      return x;
-    }
-  public float getY() {
-      return y;
-    }
 }
