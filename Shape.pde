@@ -1,4 +1,4 @@
-abstract class Shape {
+public abstract class Shape {
   //Global
   float x;
   float y;

@@ -3,11 +3,10 @@
     private final color colour;
     private final float radius;
     private float xSpd, ySpd;
-    private boolean gameOver;
     
     Ball(float x, float y, float w, float h) {
       super(x, y, w, h);
-      this.colour = color(255, 255, 255);
+      this.colour = color(234, 255, 118);
       this.radius = 9;
       //Ball Physics Stuff
       this.reset();
@@ -34,21 +33,15 @@
     }
     
     private void edgecheck() { //Checks if ball hits any edge; game over if ball hits bottom of screen
-      if (x < 0 || x > width) {
+      if (x - radius < 0 || x  + radius > width) {
         xSpd *= -1;
       }
       if (y > height) { //Bottom of screen
-        gameOver = true;
-        println(gameOver);
         reset();
       }
-      if (y < 0) {
+      if (y - radius < 0) { //Top of screen
        ySpd *= -1;
       }
-    }
-    
-    public boolean checkGameOver() {
-        return gameOver;
     }
     
     private float getX() {
@@ -67,7 +60,6 @@
       
       if (distance < ball.radius + 20) {
         ySpd *= -1;
-        xSpd *= -1;
       } 
     }
   }
